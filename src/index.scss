@@ -68,33 +68,52 @@ main {
         }
       }
 
-      .addBtn {
-        padding: 10px 15px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
+      .cont-btn {
+        display: flex;
+        gap: 10px;
+        .addBtn {
+          padding: 10px 15px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
 
-        &:hover {
-          background-color: #0056b3;
-          cursor: pointer;
+          &:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+          }
         }
-      }
 
-      .editBtn {
-        padding: 10px 15px;
-        background-color: rgb(219, 186, 40);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
+        .editBtn {
+          padding: 10px 15px;
+          background-color: rgb(219, 186, 40);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
 
-        &:hover {
-          background-color: rgb(138, 126, 20);
-          cursor: pointer;
+          &:hover {
+            background-color: rgb(138, 126, 20);
+            cursor: pointer;
+          }
+        }
+
+        .cancelBtn {
+          padding: 10px 15px;
+          background-color: rgb(151, 151, 151);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-size: 16px;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: rgb(97, 97, 97);
+            cursor: pointer;
+          }
         }
       }
     }
@@ -105,16 +124,28 @@ main {
     }
 
     ul {
+      margin-top: 10px;
       list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
 
       li {
         line-height: 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 0 10px;
+        border-radius: 10px;
 
         span {
           font-size: 20px;
+          color: rgb(211, 211, 211);
+          width: 70%;
+          max-width: 200px;
+          overflow-x: hidden;
+          text-overflow: ellipsis;
         }
 
         .cont-icons {

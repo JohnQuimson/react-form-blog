@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
-import { FaRegEdit } from 'react-icons/fa';
+import { FaRegEdit, FaSave } from 'react-icons/fa';
 
 const Form = () => {
   const [articles, setArticles] = useState([]);
   const [articleTitle, setArticleTitle] = useState('');
 
   const [editIndex, setEditIndex] = useState(null);
-  const [editTitle, setEditTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,9 +27,16 @@ const Form = () => {
     setArticleTitle(articles[index]);
   };
 
+  const handleCancelEdit = () => {
+    setEditIndex(null);
+    setArticleTitle('');
+  };
+
   const removeArticle = (indexDaEliminare) => {
     setArticles((array) => array.filter((_, i) => i !== indexDaEliminare));
   };
+
+  // console.log(articleTitle);
 
   return (
     <>
@@ -42,9 +48,24 @@ const Form = () => {
             value={articleTitle}
             onChange={(e) => setArticleTitle(e.target.value)}
           />
-          <button className={editIndex !== null ? 'editBtn' : 'addBtn'}>
-            {editIndex !== null ? 'editBtn' : '+'}
-          </button>
+          <div className="cont-btn">
+            <button
+              className={editIndex !== null ? 'editBtn' : 'addBtn'}
+              disabled={articleTitle === ''}
+            >
+              {editIndex !== null ? <FaSave /> : '+'}
+            </button>
+            {/* cancel btn */}
+            {editIndex !== null && (
+              <button
+                type="button"
+                onClick={handleCancelEdit}
+                className="cancelBtn"
+              >
+                Annulla
+              </button>
+            )}
+          </div>
         </form>
 
         {articles.length > 0 && <h3 className="subtitle">Articoli:</h3>}
