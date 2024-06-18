@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 
 const Main = () => {
-  const [article, setArticle] = useState([]);
+  const [articles, setArticles] = useState([]);
   const [articleTitle, setArticleTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setArticle((array) => [...array, articleTitle]);
+    setArticles((array) => [...array, articleTitle]);
     setArticleTitle('');
+  };
+
+  const removeArticle = (indexDaEliminare) => {
+    setArticles((array) => array.filter((_, i) => i !== indexDaEliminare));
   };
 
   return (
@@ -25,8 +29,10 @@ const Main = () => {
         <strong>Ingredienti:</strong>
       </p>
       <ul>
-        {article.map((article, index) => (
-          <li key={`article${index}`}>{article}</li>
+        {articles.map((article, index) => (
+          <li key={`article${index}`} onClick={() => removeArticle(index)}>
+            {article}
+          </li>
         ))}
       </ul>
     </div>
