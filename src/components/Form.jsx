@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
+import { FaRegEdit } from 'react-icons/fa';
 
 const Form = () => {
   const [articles, setArticles] = useState([]);
@@ -34,10 +35,13 @@ const Form = () => {
           {articles.map((article, index) => (
             <li key={`article${index}`}>
               <span>{article}</span>
-              <MdDeleteForever
-                className="deleteIcon"
-                onClick={() => removeArticle(index)}
-              />
+              <div className="cont-icons">
+                <FaRegEdit className="editIcon" />
+                <MdDeleteForever
+                  className="deleteIcon"
+                  onClick={() => removeArticle(index)}
+                />
+              </div>
             </li>
           ))}
         </ul>

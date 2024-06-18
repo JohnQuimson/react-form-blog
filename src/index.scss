@@ -102,13 +102,28 @@ main {
           font-size: 20px;
         }
 
-        .deleteIcon {
-          color: rgb(202, 31, 31);
-          font-size: 24px;
+        .cont-icons {
+          display: flex;
+          gap: 20px;
 
-          &:hover {
-            color: rgb(139, 25, 25);
-            cursor: pointer;
+          .deleteIcon {
+            color: rgb(202, 31, 31);
+            font-size: 24px;
+
+            &:hover {
+              color: rgb(139, 25, 25);
+              cursor: pointer;
+            }
+          }
+
+          .editIcon {
+            color: rgb(219, 186, 40);
+            font-size: 22px;
+
+            &:hover {
+              color: rgb(138, 126, 20);
+              cursor: pointer;
+            }
           }
         }
       }
