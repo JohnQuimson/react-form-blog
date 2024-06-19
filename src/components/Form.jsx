@@ -36,22 +36,37 @@ const Form = () => {
     setArticles((array) => array.filter((_, i) => i !== indexDaEliminare));
   };
 
+  const handleDeleteInput = () => {
+    setArticleTitle('');
+  };
+
   // console.log(articleTitle);
 
   return (
     <>
       <section id="form-section">
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Inserisci un articolo"
-            value={articleTitle}
-            onChange={(e) => setArticleTitle(e.target.value)}
-          />
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="Inserisci un articolo"
+              value={articleTitle}
+              onChange={(e) => setArticleTitle(e.target.value)}
+            />
+            {articleTitle && (
+              <button
+                type="button"
+                onClick={handleDeleteInput}
+                className="clear-button"
+              >
+                x
+              </button>
+            )}
+          </div>
           <div className="cont-btn">
             <button
               className={editIndex !== null ? 'editBtn' : 'addBtn'}
-              disabled={articleTitle === ''}
+              disabled={articleTitle.trim() === ''}
             >
               {editIndex !== null ? <FaSave /> : '+'}
             </button>
